@@ -85,7 +85,6 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
@@ -184,3 +183,64 @@ input, textarea, select, .uneditable-input {
      }
    }
  }
+
+ #book {
+  background-image:url('/assets/book.jpg');
+  background-color: transparent;
+  background-repeat:no-repeat;
+  background-size: 85%;
+  height:600px;
+  background-position:center;
+ }
+
+#book_pages{
+  margin-left:100px;
+  margin-right:95px;
+  height:100%;
+  text-align:left;
+}
+
+#left_book{
+  height: 90%;
+  float: left;
+  width: 48%;
+  margin-top: 25px;
+}
+
+#right_book{
+  height: 90%;
+  float: right;
+  width: 50%;
+  margin-top: 25px;
+}
+
+.chapter_title{
+  font-size:25px;
+  font-weight:bold;
+  margin:25px 25px 25px 0;
+}
+
+#title{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+#container{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.nav-tabs{
+  margin-right:0px !important;
+}
+.tab-content{
+  background-color:white;
+  height:500px;
+  border-top:1px #ddd solid;
+  border-bottom:1px #ddd solid;
+  border-right:1px #ddd solid;
+}
+
+#side_nav{
+  height:500px;
+}

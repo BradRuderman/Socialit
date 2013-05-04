@@ -1,9 +1,12 @@
 <% provide(:title, 'Home') %>
-<div class="center hero-unit">
-	<h1>Welcome to the Sample App</h1>
-	<h2>
-	  
-	</h2>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+<div class="center">
+	<% if !signed_in? %>
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	<% end %>
 </div>
+<script type="text/javascript">
+$(function(){
+  $('#nav-home').addClass('active');
+});
+</script>
 
