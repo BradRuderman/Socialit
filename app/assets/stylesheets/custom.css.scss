@@ -269,7 +269,7 @@ input, textarea, select, .uneditable-input {
 
 
 .show_note{
-  background-color:yellow;
+  background-color:rgba(154, 185, 173, 0.69);
 }
 
 .people_note{
@@ -318,4 +318,10 @@ input, textarea, select, .uneditable-input {
   position: relative;
   left: 15px;
   top: 50px;
+}
+.bg-quote{
+  font-style:italic;
+}
+#book-body-header{
+  border-bottom:none !important;
 }

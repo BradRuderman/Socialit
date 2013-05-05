@@ -9,7 +9,7 @@ $(function(){
 });
 
 function getAnnotations(id){
-	$.get('/annontations/' + id, function(data) {
+	$.get('/annontations/' + id + '.json', function(data) {
 		for(var i = 0; i < data.length; i++){
 			var target = "#p_" + data[i]["paragraph"];
 			var text = $(target).text().trim();
@@ -20,9 +20,15 @@ function getAnnotations(id){
 			var beginning = text.slice(0,s);
 			var middle = text.slice(s,e);
 			var end = text.slice(e,total_chars);
-			var htmlSpan ="<span title=\"" + data[i]["description"] + "\" class=\"note show_note\">" + middle + "</span>";
+			var htmlSpan ="<span id=\"" + data[i]["id"] + "\" title=\"" + data[i]["description"] + "\" class=\"note show_note\">" + middle + "</span>";
 			newHtml = newHtml.replace(middle,htmlSpan);
 			$(target).html(newHtml);
 		}
+		$('.note').on('click',function(){
+			$("#book-modal").modal();
+			$.get('/annontations/' + $(this).attr('id') + '?quote=' + $(this).text() +'&c=' + Math.floor(Math.random()*11), function(data) {
+				$("#book-modal-body").html(data);
+			});
+		});
 	});
 }
