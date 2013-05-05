@@ -1,4 +1,4 @@
-<% provide(:title, 'Books') %>
+ <% provide(:title, 'Books') %>
 
 <div class="books">
   <div id="my_books">
@@ -9,7 +9,28 @@
     <h1>Suggested Books</h1>
     <hr />
     <% @books["books"].each do |b| %>
-    <div class="book">
+  <ul class="thumbnails book">
+    <li class="span4">
+      <a href="#" class="thumbnail">
+        <h3 class="title">
+          <%= b["title"] %>
+        </h3>
+        <p class="author">
+          by 
+          <% b["authors"].each_with_index do |a,i| %>
+            <%= a["full_name"] %>
+            <% if i < b["authors"].size - 1 %>
+              ,
+            <% end %>
+          <% end %>
+        </p>
+       <img data-src="holder.js/300x200" alt=""> 
+      </a>
+   </li>
+ </ul>
+
+
+    <!--<div class="book">
       <div class="book_img">
         <img src="http://covers.librarything.com/devkey/KEY/b7aa084fe666fe42cc104f66bfa6932a/isbn/<%= b["isbn"]%>">
         <div class="title">
@@ -24,7 +45,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    </div> -->
     <% end %>
   </div>
 </div>

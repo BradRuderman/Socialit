@@ -244,3 +244,18 @@ input, textarea, select, .uneditable-input {
 #side_nav{
   height:500px;
 }
+
+/* books */
+.book{
+  float: left;
+  padding: 10px;
+
+}
+.title{
+  color: #295266;
+  font-weight: bold;
+}
+
+.author{
+  font-style: italic;
+}
