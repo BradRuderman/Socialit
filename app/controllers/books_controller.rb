@@ -54,6 +54,8 @@ class BooksController < ApplicationController
       b.author = b.author.to_s + a["full_name"].to_s + ","
     end
     b.author = b.author.chomp(",")
+    covers = ["taleoftwocities.jpg","barchestertowers.jpg","cranford.jpg", "daisymiller.jpg","danielderonda.jpg","davidcopperfield.jpg","davidthorne.jpg","dracula.jpg", "dubliners.jpg", "emma.jpg", "evelina.jpg", "farfromthemaddingcrowd.jpg"]
+    b.image_url = covers[params[:cover_id].to_i]
     current_user.books.push(b)
     #current_user.books.add(b)
     #current_user.save!

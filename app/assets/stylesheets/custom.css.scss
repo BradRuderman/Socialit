@@ -64,6 +64,8 @@ p {
 
 #logo {
   float: left;
+  height:20px;
+  width:100px;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
@@ -72,12 +74,10 @@ p {
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
-  &:hover {
-	 color: #fff;
-	 text-decoration: none;
-  }
 }
-
+#logo:hover{
+  text-decoration:none;
+}
 /*.dropdown-toggle {
   margin-top: 1px;
 }*/
@@ -346,8 +346,10 @@ input, textarea, select, .uneditable-input {
   position:relative;
 }
 .navbar-inner {
-  background-color: #336699; /* background color will be black for all browsers */
-  background-image: none;
-  background-repeat: no-repeat;
+  background-image:url('/assets/background-gray.png');
+  background-repeat:repeat-x;
+  background-attachment:fixed;
+  background-position:center; 
+  background-color: #fff; /* background color will be black for all browsers */
   filter: none;
 }

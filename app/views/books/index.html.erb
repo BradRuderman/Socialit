@@ -25,7 +25,7 @@
     <% covers = ["taleoftwocities.jpg","barchestertowers.jpg","cranford.jpg", "daisymiller.jpg","danielderonda.jpg","davidcopperfield.jpg","davidthorne.jpg","dracula.jpg", "dubliners.jpg", "emma.jpg", "evelina.jpg", "farfromthemaddingcrowd.jpg"] %>
     <% current_user.books.each_with_index do |b,i| %>
       <div class="book mybooks">
-        <img class="book_cover" src="/assets/<%= covers[i] %>" />
+        <img class="book_cover" src="/assets/<%= b.image_url %>" />
         <div class="book_title">
           <%= b.title %>
         </div>
@@ -63,7 +63,7 @@
           <% end %>
         </div>
         <div class="book-btn-row">
-          <a href="/books/add.html?pearson_id=<%= b["id"] %>" class="buy">
+          <a href="/books/add.html?pearson_id=<%= b["id"] %>&cover_id=<%= i %>" class="buy">
             <button class="btn">Buy</button>
           </a>
           <a href="/books/info?pearson_id=<%= b["id"] %>">
