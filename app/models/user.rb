@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   has_many :books
+  has_many :annontations
   
   private
   

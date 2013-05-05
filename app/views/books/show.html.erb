@@ -10,30 +10,48 @@
 		<div id="book_pages">
 			<div id="left_book" class="book_page">
 				<div class="chapter_title">
-					Chapter 1: The Start
+					Introduction
 				</div>
-				<p>
-					&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet semper libero. Sed auctor, dui sit amet adipiscing condimentum, nulla ipsum ultrices lectus, vel hendrerit sapien arcu eget libero. Vestibulum aliquet leo et tellus rutrum varius. Duis mattis mi id nisl gravida fringilla. Sed tellus lectus, laoreet eget dapibus sit amet, luctus a est. Quisque posuere congue tristique. Nullam at lacus id felis tincidunt tincidunt at eget felis. Nulla facilisi. In sit amet est mauris, in vestibulum ipsum. Integer scelerisque diam ut ante tristique sollicitudin. Aliquam mattis mollis pretium.
+				<p id="p_0">
+					Stop me if you’ve heard this one before. Brilliant college kids sitting in a dorm are inventing the future. Heedless of boundaries, possessed of new technology and youthful enthusiasm, they build a new company from scratch. Their early success allows them to raise money and bring an amazing new product to market. They hire their friends, assemble a superstar team, and dare the world to stop them.
 				</p>
-				<p>
-					&nbsp;&nbsp;&nbsp; Mauris volutpat lacinia odio, eu rhoncus urna semper in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dolor nulla, lobortis vitae porttitor vitae, rutrum convallis urna. Suspendisse augue dolor, laoreet nec luctus in, porttitor a elit. Donec id lorem dolor. Sed mollis tincidunt venenatis. Ut imperdiet pretium nisi, quis aliquet diam posuere vel. Integer in mi nisi, sit amet tristique arcu. Quisque at velit id est porttitor euismod
+				<p id="p_1">
+					Ten years and several startups ago, that was me, building my first company. I particularly remember a moment from back then: the moment I realized my company was going to fail. My cofounder and I were at our wits’ end. The dot-com bubble had burst, and we had spent all our money. We tried desperately to raise more capital, and we could not. It was like a breakup scene from a Hollywood movie: it was raining, and we were arguing in the street. We couldn’t even agree on where to walk next, and so we parted in anger, heading in opposite directions. As a metaphor for our company’s failure, this image of the two of us, lost in the rain and drifting apart, is perfect.
+				</p>
+				<p id="p_2">
+					It remains a painful memory. The company limped along for months afterward, but our situation was hopeless. At the time, it had seemed we were doing everything right: we had a great product, a brilliant team, amazing technology, and the right idea at the right time. And we really
 				</p>
 			</div>
 			<div id="right_book" class="book_page">
-				<p>
-					nulla ipsum ultrices lectus, vel hendrerit sapien arcu eget libero. Vestibulum aliquet leo et tellus rutrum varius. Duis mattis mi id nisl gravida fringilla. Sed tellus lectus, laoreet eget dapibus sit amet, luctus a est. Quisque posuere congue tristique. Nullam at lacus id felis tincidunt tincidunt at eget felis. Nulla facilisi. In sit amet est mauris, in vestibulum ipsum. Integer scelerisque diam ut ante tristique sollicitudin. Aliquam mattis mollis pretium. a elit. Donec id lorem dolor.
+				<p id="p_4">
+					 were on to something. We were building a way for college kids to create online pro!les for the purpose of sharing … with employers. Oops. But despite a promising idea, we were nonetheless doomed from day one, because we did not know the process we would need to use to turnbecause we did not know the process we would need to use to turn our product insights into a great company.
 				</p>
-				<p>
-					Mauris volutpat lacinia odio, eu rhoncus urna semper in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dolor nulla, lobortis vitae porttitor vitae, rutrum convallis urna. Suspendisse augue dolor, laoreet nec luctus in, porttitor a elit. Donec id lorem dolor. Sed mollis tincidunt venenatis. Ut imperdiet pretium nisi, quis aliquet diam posuere vel. Integer in mi nisi, sit amet tristique arcu. Quisque at velit id est porttitor euismod
+				<p id="p_4">
+					If you’ve never experienced a failure like this, it is hard to describe the feeling. It’s as if the world were falling out from under you. You realize you’ve been duped. The stories in the magazines are lies: hard work and perseverance don’t lead to success. Even worse, the many, many, many promises you’ve made to employees, friends, and family are not going to come true. Everyone who thought you were foolish for stepping out on your own will be proven right.
+				</p>
+				<p id="p_5">
+					It wasn’t supposed to turn out that way. In magazines and newspapers, in blockbuster movies, and on countless blogs, we hear the mantra of the successful entrepreneurs: through determination, brilliance, great timing, and—above all—a great product, you too can achieve fame and fortune.
+				</p>
+				<p id="p_6">
+					There is a mythmaking industry hard at work to sell us that story, but I have come to believe that the story is false, the product of selection bias and after-the-fact rationalization. In fact, having worked with hundreds of entrepreneurs, I have seen firsthand how often a promising start leads to failure. The grim reality is that most startups fail. Most new products are not successful. Most new ventures do not live up to their potential.
 				</p>
 			</div>
 		</div>
 	</div>
-	<% if !signed_in? %>
-		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-	<% end %>
+	<div id="book_people">
+		<div class="pull-left people_note">
+			People talking about these pages:
+		</div>
+		<div class="people">
+			<div class="person">
+				<img src="/assets/brett.png" class="people_img"/>
+				<div>Brett Goldstein</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script>
 $(function(){
+	getAnnotations(<%= params[:id] %>);
 });
 </script>
