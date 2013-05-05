@@ -4,41 +4,52 @@
   <div id="my_books">
     <h1>My Books</h1>
     <hr />
-      <ul class="thumbnails book mybooks">
-        <li class="span4">
-          <a href="#" class="thumbnail">
-            <h3 class="title">
-              The Lean Startup
-            </h3>
-            <p class="author">
-              by 
-              Eric Ries
-            </p>
-            <form name="myform" action="/books/<%= !Book.first.nil? ? Book.first.id : "" %>" method="GET">
-              <input type="submit" value="Read" />
-            </form>
-             <img data-src="holder.js/300x200" alt=""> 
+      <div class="thumbnails book mybooks">
+        <a href="#" class="thumbnail">
+          <img class="book_cover" src="/assets/theleanstartup.jpg" />
+          <h3 class="title">
+            The Lean Startup
+          </h3>
+          <p class="author">
+            by 
+            Eric Ries
+          </p>
+          <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
+            <button class="btn">Read</button>
           </a>
-       </li>
-      </ul>
-    <% current_user.books.each do |b| %>
-      <ul class="thumbnails book mybooks">
-        <li class="span4">
-          <a href="#" class="thumbnail">
-            <h3 class="title">
-              <%= b.title %>
-            </h3>
-            <p class="author">
-              by 
-              <%= b.author %>
-            </p>
-            <form name="myform" action="/books/<%= b.id %>" method="GET">
-              <input type="submit" value="Read" />
-            </form>
-             <img data-src="holder.js/300x200" alt=""> 
+          <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
+            <button class="btn">Info</button>
           </a>
-       </li>
-      </ul>
+           <img data-src="holder.js/300x200" alt=""> 
+        </a>
+       <!-- <li class="span4">
+          <a href="#" class="thumbnail">
+            Add more books below!
+          </a>
+        </li>
+      -->
+      </div>
+    <% covers = ["taleoftwocities.jpg","barchestertowers.jpg","cranford.jpg", "daisymiller.jpg","danielderonda.jpg","davidcopperfield.jpg","davidthorne.jpg","dracula.jpg", "dubliners.jpg"] %>
+    <% current_user.books.each_with_index do |b,i| %>
+      <div class="thumbnails book mybooks">
+        <a href="#" class="thumbnail">
+          <img class="book_cover" src="/assets/<%= covers[i] %>" />
+          <h3 class="title">
+            <%= b.title %>
+          </h3>
+          <p class="author">
+            by 
+            <%= b.author %>
+          </p>
+          <a href="/books/<%= b.id %>">
+            <button class="btn">Read</button>
+          </a>
+          <a href="/books/<%= b.id %>">
+            <button class="btn">Info</button>
+          </a>
+           <img data-src="holder.js/300x200" alt=""> 
+        </a>
+      </div>
     <% end %>
 <!--      <form name="myform" action="/books?pearson_id=6x388PneTa3m9y" method="POST">
         <input type="submit" value="Test" />
@@ -48,10 +59,10 @@
   <div id="sug_books">
     <h1>Suggested Books</h1>
     <hr />
-    <% @books["books"].each do |b| %>
-      <ul class="thumbnails book" id="a<%= remove_numbers(b["id"]) %>">
-        <li class="span4">
+    <% @books["books"].each_with_index do |b,i| %>
+      <div class="thumbnails book" id="a<%= remove_numbers(b["id"]) %>">
           <a href="#" class="thumbnail">
+            <img class="book_cover" src="/assets/<%= covers[i] %>" />
             <h3 class="title">
               <%= b["title"] %>
             </h3>
@@ -64,13 +75,16 @@
                 <% end %>
               <% end %>
             </p>
-          <form name="myform" action="/books?pearson_id=<%= b["id"] %>" method="POST">
-            <input type="submit" value="Buy" />
+          <form name="myform" class="book-form" action="/books?pearson_id=<%= b["id"] %>" method="POST">
+            <button type="submit" class="btn">Buy</button>
+            <a href="/books/<%= b["id"] %>">
+              <button class="btn">Info</button>
+            </a>
           </form>
+         
            <img data-src="holder.js/300x200" alt=""> 
           </a>
-       </li>
-      </ul>
+      </div>
     <% end %>
   </div>
 </div>

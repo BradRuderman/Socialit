@@ -319,9 +319,18 @@ input, textarea, select, .uneditable-input {
   left: 15px;
   top: 50px;
 }
+
 .bg-quote{
   font-style:italic;
 }
 #book-body-header{
   border-bottom:none !important;
+=======
+
+.book_cover {
+  padding: 10px;
+  height: 55%;
+}
+.book-form{
+  width:50px;
 }
