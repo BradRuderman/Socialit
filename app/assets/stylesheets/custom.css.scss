@@ -238,7 +238,7 @@ input, textarea, select, .uneditable-input {
 }
 .tab-content{
   background-color:white;
-  height:565px;
+  height:595px;
   border-top:1px #ddd solid;
   border-bottom:1px #ddd solid;
   border-right:1px #ddd solid;
@@ -267,24 +267,29 @@ input, textarea, select, .uneditable-input {
   font-style: italic;
 }
 
-.people_note{
-  width:175px;
-  margin-left:25px;
-  margin-top:-25px;
-}
-
-.people_img{
-  width:50px;
-  height:50px;
-}
-
-#book_btn_back{
-  margin-left:20px;
-}
-#book_btn_right{
-  margin-right:20px;
-}
 
 .show_note{
   background-color:yellow;
+}
+
+.people_note{
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+.people{
+  padding-top: 15px;
+}
+
+.person{
+
+  padding-right: 10px;
+}
+
+.fb_img{
+  height: 20px;
+  width: 20px;
+  z-index: 2;
+  position: relative;
+  left: 50%;
 }
