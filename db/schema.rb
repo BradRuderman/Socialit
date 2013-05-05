@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130505010858) do
 
   create_table "annontations", :force => true do |t|
-    t.integer  "parson_id"
+    t.string   "pearson_id"
     t.string   "description"
     t.integer  "user_id"
     t.integer  "start_location"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130505010858) do
     t.integer  "price"
     t.string   "description"
     t.string   "image_url"
-    t.integer  "pearson_id"
+    t.string   "pearson_id"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

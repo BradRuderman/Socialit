@@ -20,7 +20,7 @@ function getAnnotations(id){
 			var beginning = text.slice(0,s);
 			var middle = text.slice(s,e);
 			var end = text.slice(e,total_chars);
-			var htmlSpan ="<span title=\"" + data[i]["description"] + "\" style=\"background-color:blue\">" + middle + "</span>";
+			var htmlSpan ="<span title=\"" + data[i]["description"] + "\" class=\"note show_note\">" + middle + "</span>";
 			newHtml = newHtml.replace(middle,htmlSpan);
 			$(target).html(newHtml);
 		}

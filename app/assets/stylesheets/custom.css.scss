@@ -242,7 +242,6 @@ input, textarea, select, .uneditable-input {
   border-top:1px #ddd solid;
   border-bottom:1px #ddd solid;
   border-right:1px #ddd solid;
-  overflow:hidden;
 }
 
 #side_nav{
@@ -255,6 +254,10 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
 
 }
+#sug_books{
+  clear:both;
+}
+
 .title{
   color: #295266;
   font-weight: bold;
@@ -280,4 +283,8 @@ input, textarea, select, .uneditable-input {
 }
 #book_btn_right{
   margin-right:20px;
+}
+
+.show_note{
+  background-color:yellow;
 }

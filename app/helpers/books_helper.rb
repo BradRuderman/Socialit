@@ -17,4 +17,8 @@ module BooksHelper
 		Rails.logger.info data
 		return data
 	end
+
+	def remove_numbers(id)
+		return id.to_s.gsub(/[^a-zA-Z]/, '')
+	end
 end

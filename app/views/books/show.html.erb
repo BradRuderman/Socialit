@@ -1,9 +1,9 @@
 <div class="center">
 	<div id="book_btn_back" class="btn-group pull-left">
-		<button class="btn book_btn">back</button>
+		<button class="btn book_btn" id="book_back">back</button>
 	</div>
 	<div id="book_btn_right" class="btn-group pull-right">
-		<button class="btn book_btn"><i class="icon-eye-open"></i></button>
+		<button class="btn book_btn show_notes" id="show_notes"><i class="icon-eye-open"></i></button>
 		<button class="btn book_btn"><i class="icon-cog"></i></button>
 	</div>
 	<div id="book">
@@ -69,5 +69,31 @@
 <script>
 $(function(){
 	getAnnotations(<%= params[:id] %>);
+	$("#show_notes").click(function(){
+		$('.note').each(function(i, obj) {
+    		if ($(this).hasClass('show_note'))
+			{
+				$(this).removeClass('show_note');
+			}
+			else
+			{
+				$(this).addClass('show_note');
+				
+			}
+		});
+		if ($('.icon-eye-open').length > 0)
+		{
+			$('.icon-eye-open').addClass('icon-eye-close');
+			$('.icon-eye-open').removeClass('icon-eye-open');
+		}
+		else
+		{
+			$('.icon-eye-close').addClass('icon-eye-open');
+			$('.icon-eye-close').removeClass('icon-eye-close');
+		}
+	});
+	$('#book_back').click(function(){
+		document.location.href = '/books';
+	});
 });
 </script>

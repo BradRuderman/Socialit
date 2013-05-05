@@ -3,68 +3,74 @@
 <div class="books">
   <div id="my_books">
     <h1>My Books</h1>
+    <hr />
+      <ul class="thumbnails book mybooks">
+        <li class="span4">
+          <a href="#" class="thumbnail">
+            <h3 class="title">
+              The Lean Startup
+            </h3>
+            <p class="author">
+              by 
+              Eric Ries
+            </p>
+            <form name="myform" action="/books/<%= !Book.first.nil? ? Book.first.id : "" %>" method="GET">
+              <input type="submit" value="Read" />
+            </form>
+             <img data-src="holder.js/300x200" alt=""> 
+          </a>
+       </li>
+      </ul>
     <% current_user.books.each do |b| %>
-    <div class="book">
-      <div class="book_img">
-        <div class="title">
-          <%= b.title %>
-        </div>
-        <div class="author">
-          <%= b.author %>
-        </div>
-      </div>
-    </div>
+      <ul class="thumbnails book mybooks">
+        <li class="span4">
+          <a href="#" class="thumbnail">
+            <h3 class="title">
+              <%= b.title %>
+            </h3>
+            <p class="author">
+              by 
+              <%= b.author %>
+            </p>
+            <form name="myform" action="/books/<%= b.id %>" method="GET">
+              <input type="submit" value="Read" />
+            </form>
+             <img data-src="holder.js/300x200" alt=""> 
+          </a>
+       </li>
+      </ul>
     <% end %>
 <!--      <form name="myform" action="/books?pearson_id=6x388PneTa3m9y" method="POST">
         <input type="submit" value="Test" />
       </form>
 -->
-    <hr />
   </div>
   <div id="sug_books">
     <h1>Suggested Books</h1>
     <hr />
     <% @books["books"].each do |b| %>
-  <ul class="thumbnails book">
-    <li class="span4">
-      <a href="#" class="thumbnail">
-        <h3 class="title">
-          <%= b["title"] %>
-        </h3>
-        <p class="author">
-          by 
-          <% b["authors"].each_with_index do |a,i| %>
-            <%= a["full_name"] %>
-            <% if i < b["authors"].size - 1 %>
-              ,
-            <% end %>
-          <% end %>
-        </p>
-      <form name="myform" action="/books?pearson_id=6x388PneTa3m9y" method="POST">
-        <input type="submit" value="add" />
-      </form>
-       <img data-src="holder.js/300x200" alt=""> 
-      </a>
-   </li>
- </ul>
-
-
-    <!--<div class="book">
-      <div class="book_img">
-        <img src="http://covers.librarything.com/devkey/b7aa084fe666fe42cc104f66bfa6932a/medium/isbn/<%= b["isbn"]%>">
-        <div class="title">
-          <%= b["title"] %>
-        </div>
-        <div class="author">
-          <% b["authors"].each_with_index do |a,i| %>
-            <%= a["full_name"] %>
-            <% if i < b["authors"].size - 1 %>
-              ,
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div> -->
+      <ul class="thumbnails book" id="a<%= remove_numbers(b["id"]) %>">
+        <li class="span4">
+          <a href="#" class="thumbnail">
+            <h3 class="title">
+              <%= b["title"] %>
+            </h3>
+            <p class="author">
+              by 
+              <% b["authors"].each_with_index do |a,i| %>
+                <%= a["full_name"] %>
+                <% if i < b["authors"].size - 1 %>
+                  ,
+                <% end %>
+              <% end %>
+            </p>
+          <form name="myform" action="/books?pearson_id=<%= b["id"] %>" method="POST">
+            <input type="submit" value="Buy" />
+          </form>
+           <img data-src="holder.js/300x200" alt=""> 
+          </a>
+       </li>
+      </ul>
     <% end %>
   </div>
 </div>
@@ -72,5 +78,8 @@
 <script type="text/javascript">
 $(function(){
   $('#nav-books').addClass('active');
+  <% current_user.books.each do |b| %>
+    $('#a<%= remove_numbers(b.pearson_id) %>').hide();
+  <% end %>
 });
 </script>

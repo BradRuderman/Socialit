@@ -1,7 +1,7 @@
 class CreateAnnontations < ActiveRecord::Migration
   def change
     create_table :annontations do |t|
-      t.integer :parson_id
+      t.string :pearson_id
       t.string :description
       t.integer :user_id
       t.integer :start_location
