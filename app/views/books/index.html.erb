@@ -4,86 +4,72 @@
   <div id="my_books">
     <h1>My Books</h1>
     <hr />
-      <div class="thumbnails book mybooks">
-        <a href="#" class="thumbnail">
+      <div class="book mybooks">
           <img class="book_cover" src="/assets/theleanstartup.jpg" />
-          <h3 class="title">
+          <div class="book_title">
             The Lean Startup
-          </h3>
-          <p class="author">
+          </div>
+          <p>
             by 
             Eric Ries
           </p>
-          <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
-            <button class="btn">Read</button>
-          </a>
-          <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
-            <button class="btn">Info</button>
-          </a>
-           <img data-src="holder.js/300x200" alt=""> 
-        </a>
-       <!-- <li class="span4">
-          <a href="#" class="thumbnail">
-            Add more books below!
-          </a>
-        </li>
-      -->
+          <div class="book-btn-row">
+            <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
+              <button class="btn">Read</button>
+            </a>
+            <a href="/info/<%= !Book.first.nil? ? Book.first.id : "" %>">
+              <button class="btn">Info</button>
+            </a>
+          </div>
       </div>
     <% covers = ["taleoftwocities.jpg","barchestertowers.jpg","cranford.jpg", "daisymiller.jpg","danielderonda.jpg","davidcopperfield.jpg","davidthorne.jpg","dracula.jpg", "dubliners.jpg"] %>
     <% current_user.books.each_with_index do |b,i| %>
-      <div class="thumbnails book mybooks">
-        <a href="#" class="thumbnail">
-          <img class="book_cover" src="/assets/<%= covers[i] %>" />
-          <h3 class="title">
-            <%= b.title %>
-          </h3>
-          <p class="author">
-            by 
-            <%= b.author %>
-          </p>
+      <div class="book mybooks">
+        <img class="book_cover" src="/assets/<%= covers[i] %>" />
+        <div class="book_title">
+          <%= b.title %>
+        </div>
+        <p>
+          by 
+          <%= b.author %>
+        </p>
+        <div class="book-btn-row">
           <a href="/books/<%= b.id %>">
             <button class="btn">Read</button>
           </a>
-          <a href="/books/<%= b.id %>">
+          <a href="/info/<%= b.pearson_id %>">
             <button class="btn">Info</button>
           </a>
-           <img data-src="holder.js/300x200" alt=""> 
-        </a>
+        </div>
       </div>
     <% end %>
-<!--      <form name="myform" action="/books?pearson_id=6x388PneTa3m9y" method="POST">
-        <input type="submit" value="Test" />
-      </form>
--->
   </div>
   <div id="sug_books">
     <h1>Suggested Books</h1>
     <hr />
     <% @books["books"].each_with_index do |b,i| %>
-      <div class="thumbnails book" id="a<%= remove_numbers(b["id"]) %>">
-          <a href="#" class="thumbnail">
-            <img class="book_cover" src="/assets/<%= covers[i] %>" />
-            <h3 class="title">
-              <%= b["title"] %>
-            </h3>
-            <p class="author">
-              by 
-              <% b["authors"].each_with_index do |a,i| %>
-                <%= a["full_name"] %>
-                <% if i < b["authors"].size - 1 %>
-                  ,
-                <% end %>
-              <% end %>
-            </p>
-          <form name="myform" class="book-form" action="/books?pearson_id=<%= b["id"] %>" method="POST">
-            <button type="submit" class="btn">Buy</button>
-            <a href="/books/<%= b["id"] %>">
-              <button class="btn">Info</button>
-            </a>
-          </form>
-         
-           <img data-src="holder.js/300x200" alt=""> 
+      <div class="book mybooks" id="a<%= remove_numbers(b["id"]) %>">
+        <img class="book_cover" src="/assets/<%= covers[i] %>" />
+        <div class="book_title">
+          <%= b["title"] %>
+        </div>
+        <div>
+          by 
+          <% b["authors"].each_with_index do |a,i| %>
+            <%= a["full_name"] %>
+            <% if i < b["authors"].size - 1 %>
+              ,
+            <% end %>
+          <% end %>
+        </div>
+        <div class="book-btn-row">
+          <a href="/books/add.html?pearson_id=<%= b["id"] %>" class="buy">
+            <button class="btn">Buy</button>
           </a>
+          <a href="/books/info?pearson_id=<%= b["id"] %>">
+            <button class="btn">Info</button>
+          </a>
+        </div>
       </div>
     <% end %>
   </div>

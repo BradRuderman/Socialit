@@ -87,13 +87,7 @@ p {
 footer {
   border-top: 1px solid #eaeaea;
   color: #999;
-  line-height: 12px !important;
-  a {
-    color: #555;
-    &:hover { 
-      color: #222;
-    }
-  }  
+  line-height: 12px !important; 
   small { 
     float: left; 
   }
@@ -328,9 +322,40 @@ input, textarea, select, .uneditable-input {
 }
 
 .book_cover {
-  padding: 10px;
-  height: 55%;
+  height:150px;
 }
 .book-form{
   width:50px;
+}
+.mybooks{
+  border: 1px #ddd solid;
+  margin: 10px;
+  text-align:center;
+  width:200px;
+  height:250px;
+  border-radius: 10px;  
+}
+.book_title{
+  font-weight:bold;
+}
+.book-btn-row{
+  position:relative;
+}
+.bkimg{
+  height:300px;
+  float:left;
+}
+.bk-title{
+  float:left;
+  margin-left:50px;
+  width:500px;
+}
+.bk-title h1{
+  text-align:left;
+}
+#info-cont{
+  float:left;
+  width:100%;
+  margin-left:200px;
+  margin-top:50px;
 }

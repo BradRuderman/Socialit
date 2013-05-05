@@ -41,6 +41,10 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+
+  end
+
+  def add
     @book = get_book(params[:pearson_id])
     b = Book.new
     b.pearson_id = @book["book"]["id"]

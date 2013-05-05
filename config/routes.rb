@@ -14,7 +14,11 @@ Contacts::Application.routes.draw do
   
   match '/annontations/:id', to: 'annontations#book'
 
+  match '/books/add', to: 'books#add'
   resources :books
+
+  resources :info
+
 
   
  # The priority is based upon order of creation:
