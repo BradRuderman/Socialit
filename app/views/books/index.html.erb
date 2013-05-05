@@ -7,6 +7,7 @@
       <ul class="thumbnails book mybooks">
         <li class="span4">
           <a href="#" class="thumbnail">
+            <img class="book_cover" src="/assets/theleanstartup.jpg" />
             <h3 class="title">
               The Lean Startup
             </h3>
@@ -14,17 +15,28 @@
               by 
               Eric Ries
             </p>
-            <form name="myform" action="/books/<%= !Book.first.nil? ? Book.first.id : "" %>" method="GET">
-              <input type="submit" value="Read" />
-            </form>
+            <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
+              <button class="btn">Read</button>
+            </a>
+            <a href="/books/<%= !Book.first.nil? ? Book.first.id : "" %>">
+              <button class="btn">Info</button>
+            </a>
              <img data-src="holder.js/300x200" alt=""> 
           </a>
        </li>
+       <!-- <li class="span4">
+          <a href="#" class="thumbnail">
+            Add more books below!
+          </a>
+        </li>
+      -->
       </ul>
-    <% current_user.books.each do |b| %>
+    <% covers = ["taleoftwocities.jpg","barchestertowers.jpg","cranford.jpg", "daisymiller.jpg","danielderonda.jpg","davidcopperfield.jpg","davidthorne.jpg","dracula.jpg", "dubliners.jpg"] %>
+    <% current_user.books.each_with_index do |b,i| %>
       <ul class="thumbnails book mybooks">
         <li class="span4">
           <a href="#" class="thumbnail">
+            <img class="book_cover" src="/assets/<%= covers[i] %>" />
             <h3 class="title">
               <%= b.title %>
             </h3>
@@ -32,9 +44,12 @@
               by 
               <%= b.author %>
             </p>
-            <form name="myform" action="/books/<%= b.id %>" method="GET">
-              <input type="submit" value="Read" />
-            </form>
+            <a href="/books/<%= b.id %>">
+              <button class="btn">Read</button>
+            </a>
+            <a href="/books/<%= b.id %>">
+              <button class="btn">Info</button>
+            </a>
              <img data-src="holder.js/300x200" alt=""> 
           </a>
        </li>
@@ -48,10 +63,11 @@
   <div id="sug_books">
     <h1>Suggested Books</h1>
     <hr />
-    <% @books["books"].each do |b| %>
+    <% @books["books"].each_with_index do |b,i| %>
       <ul class="thumbnails book" id="a<%= remove_numbers(b["id"]) %>">
         <li class="span4">
           <a href="#" class="thumbnail">
+            <img class="book_cover" src="/assets/<%= covers[i] %>" />
             <h3 class="title">
               <%= b["title"] %>
             </h3>
@@ -65,8 +81,11 @@
               <% end %>
             </p>
           <form name="myform" action="/books?pearson_id=<%= b["id"] %>" method="POST">
-            <input type="submit" value="Buy" />
+            <button type="submit" class="btn">Buy</button>
           </form>
+          <a href="/books/<%= b["id"] %>">
+            <button class="btn">Info</button>
+          </a>
            <img data-src="holder.js/300x200" alt=""> 
           </a>
        </li>
