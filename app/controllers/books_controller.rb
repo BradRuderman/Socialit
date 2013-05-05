@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = get_books()
-
+    Rails.logger.info current_user.to_yaml
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @books }
@@ -42,15 +42,25 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(params[:book])
-
+    @book = get_book(params[:pearson_id])
+    b = Book.new
+    b.pearson_id = @book["book"]["id"]
+    b.title = @book["book"]["title"]
+    @book["book"]["authors"].each do |a|
+      Rails.logger.info a["full_name"].to_s
+      b.author = b.author.to_s + a["full_name"].to_s + ","
+    end
+    b.author = b.author.chomp(",")
+    current_user.books.push(b)
+    #current_user.books.add(b)
+    #current_user.save!
     respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render json: @book, status: :created, location: @book }
+      if b.save!
+        format.html { redirect_to '/books', notice: 'Book was successfully created.' }
+        format.json { render json: '/books', status: :created, location: @book }
       else
         format.html { render action: "new" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.json { render json: '/books', status: :unprocessable_entity }
       end
     end
   end

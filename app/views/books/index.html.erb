@@ -3,6 +3,21 @@
 <div class="books">
   <div id="my_books">
     <h1>My Books</h1>
+    <% current_user.books.each do |b| %>
+    <div class="book">
+      <div class="book_img">
+        <div class="title">
+          <%= b.title %>
+        </div>
+        <div class="author">
+          <%= b.author %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+      <form name="myform" action="/books?pearson_id=6x388PneTa3m9y" method="POST">
+        <input type="submit" value="Test" />
+      </form>
     <hr />
   </div>
   <div id="sug_books">
@@ -11,7 +26,7 @@
     <% @books["books"].each do |b| %>
     <div class="book">
       <div class="book_img">
-        <img src="http://covers.librarything.com/devkey/KEY/b7aa084fe666fe42cc104f66bfa6932a/isbn/<%= b["isbn"]%>">
+        <img src="http://covers.librarything.com/devkey/b7aa084fe666fe42cc104f66bfa6932a/medium/isbn/<%= b["isbn"]%>">
         <div class="title">
           <%= b["title"] %>
         </div>
