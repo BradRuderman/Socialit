@@ -15,14 +15,11 @@ ActiveRecord::Schema.define(:version => 20130505010858) do
 
   create_table "annontations", :force => true do |t|
     t.integer  "parson_id"
-    t.string   "description"
+    t.string   "dscription"
     t.integer  "user_id"
-    t.integer  "start_location"
-    t.integer  "end_location"
-    t.integer  "book_id"
-    t.integer  "paragraph"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "books", :force => true do |t|

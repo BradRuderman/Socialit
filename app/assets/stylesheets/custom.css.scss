@@ -238,7 +238,7 @@ input, textarea, select, .uneditable-input {
 }
 .tab-content{
   background-color:white;
-  height:565px;
+  height:595px;
   border-top:1px #ddd solid;
   border-bottom:1px #ddd solid;
   border-right:1px #ddd solid;
@@ -273,6 +273,7 @@ input, textarea, select, .uneditable-input {
 .people_img{
   width:50px;
   height:50px;
+  z-index: 1;
 }
 
 #book_btn_back{
@@ -280,4 +281,27 @@ input, textarea, select, .uneditable-input {
 }
 #book_btn_right{
   margin-right:20px;
+}
+
+
+.people_note{
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+.people{
+  padding-top: 15px;
+}
+
+.person{
+
+  padding-right: 10px;
+}
+
+.fb_img{
+  height: 20px;
+  width: 20px;
+  z-index: 2;
+  position: relative;
+  left: 50%;
 }
