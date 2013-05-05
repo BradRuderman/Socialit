@@ -85,9 +85,9 @@ p {
 /* footer */
 
 footer {
-  padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
+  line-height: 12px !important;
   a {
     color: #555;
     &:hover { 
@@ -188,9 +188,10 @@ input, textarea, select, .uneditable-input {
   background-image:url('/assets/book.jpg');
   background-color: transparent;
   background-repeat:no-repeat;
-  background-size: 85%;
-  height:600px;
+  background-size: 100% 500px;
   background-position:center;
+  height: 540px;
+  width: 100%;
  }
 
 #book_pages{
@@ -235,14 +236,14 @@ input, textarea, select, .uneditable-input {
 }
 .tab-content{
   background-color:white;
-  height:500px;
+  height:565px;
   border-top:1px #ddd solid;
   border-bottom:1px #ddd solid;
   border-right:1px #ddd solid;
 }
 
 #side_nav{
-  height:500px;
+  height:565px;
 }
 
 /* books */
