@@ -207,7 +207,7 @@ input, textarea, select, .uneditable-input {
 #right_book{
   height: 90%;
   float: right;
-  width: 50%;
+  width: 49%;
   margin-top: 10px;
 }
 
@@ -314,6 +314,10 @@ input, textarea, select, .uneditable-input {
   top: 50px;
 }
 
+.fb_img_none{
+  height:20px;
+}
+
 .bg-quote{
   font-style:italic;
 }
@@ -340,22 +344,4 @@ input, textarea, select, .uneditable-input {
 }
 .book-btn-row{
   position:relative;
-}
-.bkimg{
-  height:300px;
-  float:left;
-}
-.bk-title{
-  float:left;
-  margin-left:50px;
-  width:500px;
-}
-.bk-title h1{
-  text-align:left;
-}
-#info-cont{
-  float:left;
-  width:100%;
-  margin-left:200px;
-  margin-top:50px;
 }

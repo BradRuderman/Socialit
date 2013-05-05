@@ -32,3 +32,7 @@ function getAnnotations(id){
 		});
 	});
 }
+
+function buy(){
+	$('#btn_add_lp').text('Bought');
+}
